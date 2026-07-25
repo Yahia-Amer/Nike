@@ -47,7 +47,128 @@ if (window.innerWidth >= 992) {
 
     });
     });
-    
+
+    let regestOverlay=document.querySelector(".overlayReg"),
+    regestIcon=document.querySelector(".nav .nav-items .func .reg "),
+    regest=document.querySelector(".overlayReg .regest"),
+    xR=document.querySelector(".overlayReg .regest .x");
+
+
+    xR.addEventListener("click",function(){
+        regestOverlay.classList.toggle("show");
+    })
+        regestIcon.addEventListener("click", function () {  
+                regestOverlay.classList.toggle("show");
+            });
+const userName = document.querySelector("#userName");
+const password = document.querySelector("#password");
+const loginButton = document.querySelector(".done");
+
+const lengthRule = document.querySelector("#length");
+const upperRule = document.querySelector("#upper");
+const lowerRule = document.querySelector("#lower");
+const numberRule = document.querySelector("#number");
+
+const userRegex = /^[a-zA-Z][a-zA-Z0-9_ ]{2,19}$/;
+
+let validUser = false;
+let validPassword = false;
+
+userName.addEventListener("input", function(){
+
+    validUser = userRegex.test(userName.value);
+
+    if(validUser){
+        userName.style.border = "2px solid green";
+    }else{
+        userName.style.border = "2px solid red";
+    }
+
+    checkForm();
+
+});
+
+password.addEventListener("input", function(){
+
+    const value = password.value;
+
+    let hasLength = value.length >= 8;
+    let hasUpper = /[A-Z]/.test(value);
+    let hasLower = /[a-z]/.test(value);
+    let hasNumber = /\d/.test(value);
+
+    updateRule(lengthRule, hasLength, "At least 8 characters");
+    updateRule(upperRule, hasUpper, "One uppercase letter");
+    updateRule(lowerRule, hasLower, "One lowercase letter");
+    updateRule(numberRule, hasNumber, "One number");
+
+    validPassword =
+        hasLength &&
+        hasUpper &&
+        hasLower &&
+        hasNumber;
+
+    if(validPassword){
+        password.style.border = "2px solid green";
+    }else{
+        password.style.border = "2px solid red";
+    }
+
+    checkForm();
+
+});
+
+function updateRule(element, valid){
+
+    const icon = element.querySelector("i");
+
+    if(valid){
+
+        element.classList.add("valid");
+        element.classList.remove("invalid");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-check");
+
+    }else{
+
+        element.classList.add("invalid");
+        element.classList.remove("valid");
+
+        icon.classList.remove("fa-check");
+        icon.classList.add("fa-xmark");
+
+    }
+
+}
+
+function checkForm(){
+
+    if(validUser && validPassword){
+        loginButton.disabled = false;
+        loginButton.style.opacity = "1";
+        loginButton.style.cursor = "pointer";
+    }
+    else{
+        loginButton.disabled = true;
+        loginButton.style.opacity = ".5";
+        loginButton.style.cursor = "not-allowed";
+    }
+
+}
+
+loginButton.addEventListener("click", function () {
+
+    regestOverlay.classList.remove("show");
+    successOverlay.classList.add("show");
+
+});
+const successOverlay = document.querySelector(".overlaySuccess");
+const okButton = document.querySelector(".overlaySuccess .ok");
+
+okButton.addEventListener("click", function () {
+    successOverlay.classList.remove("show");
+});
     let cartOverlay=document.querySelector(".overlay"),
     cartIcon=document.querySelector(".nav .nav-items .func .shop"),
     cart=document.querySelector(".overlay .cart"),

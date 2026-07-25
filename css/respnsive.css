@@ -80,6 +80,11 @@
 
 }
 
+.overlayReg .regest,
+.overlaySuccess .success{
+        width:60%;
+    }
+
 
     /* HEADER */
 header #lio-carousel .lio-carousel-inner .lio-carousel-item .container .row{
@@ -240,7 +245,29 @@ white-space: nowrap;
 }
 
 @media (min-width:371px) and (max-width:1300px) {
-header #lio-carousel>button {
+
+   .overlayReg .regest,
+    .overlaySuccess .success{
+        width:90%;
+    }
+
+    .overlayReg.show .regest{
+        transform: translateY(15%);
+    }
+
+    .overlayReg .regest .title p.h4{
+        font-size:22px;
+    }
+
+    .overlayReg .regest .login input,
+    .overlayReg .regest .login button.done{
+        height:42px;
+    }
+
+    .password-rules li{
+        font-size:12px;
+    }
+    header #lio-carousel>button {
     top: 85%;
     position: absolute;
     width: 42px;
@@ -326,7 +353,15 @@ transform: translateY(50%);
 }
 }
 @media (min-width:577px) and (max-width:1300px) {
- header #lio-carousel .prev {
+     .overlayReg .regest,
+    .overlaySuccess .success{
+        width:70%;
+    }
+
+    .overlayReg .regest{
+        padding:20px;
+    }
+    header #lio-carousel .prev {
     bottom: 50%;
     left: 80%;
 }   
@@ -422,6 +457,14 @@ transform: translateY(50%);
     max-height: 300px;
   
 }
+  .overlayReg .regest,
+    .overlaySuccess .success{
+        width:55%;
+    }
+
+    .password-rules li{
+        font-size:13px;
+    }
     #home{
     height:600px !important;
 }
@@ -504,7 +547,11 @@ header #lio-carousel .prev {
 }
 
 @media (min-width:992px) and (max-width:1300px) {
-  
+ 
+     .overlayReg .regest,
+    .overlaySuccess .success{
+        width:45%;
+
 header #lio-carousel .lio-carousel-inner .lio-carousel-item .container .row{
                transform: translatey(-10%);
             gap: 10%;
@@ -606,7 +653,7 @@ header #lio-carousel .prev {
     transform: translate(35%,-200%);
 }
 
-}
+}}
 @media (min-width:1033px) and (max-width:1300px) {
 
   .nav .burger{
@@ -639,6 +686,10 @@ header #lio-carousel .prev {
 }
 
 
+   .overlayReg .regest,
+    .overlaySuccess .success{
+        width:40%;
+    }
 
 
 header #lio-carousel .lio-carousel-inner {
