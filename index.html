@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+</style>
+<!-- <link rel="stylesheet" href="css/all.min.css"> -->
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/nike.css">
+<link rel="stylesheet" href="css/respnsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="icon" href="" >
+</head>
+<body>
+    
+
+         <div class="navbar nav sticky-top ">
+            <img class="logo" src="img/logo.png">
+            <button class="burger">
+                <span ></span>
+                <span ></span>
+                <span ></span>
+            </button>
+        <div class="nav-items">
+
+            <ul class="sections"> 
+                <li class="d-inline justify-content-around fw-normal fs-5 ">
+                    <a class="nav-link" aria-current="page" href="#Home">Home</a>
+                </li>
+                <li class="d-inline justify-content-around fw-normal fs-5 ">         
+                    <a class="nav-link"  href="#latest">Latest</a>
+                </li>
+                <li class="d-inline justify-content-around fw-normal fs-5 ">  
+                    <a class="nav-link"  href="#featured">Featured</a>
+                </li>
+            </ul>
+
+            <ul class="func"> 
+                <li class="d-inline justify-content-around fw-normal "><i class="fas fa-heart"></i></li>
+                <li class="d-inline justify-content-around fw-normal shop"><i class="fas fa-shopping-cart"></i></li>
+                <li class="d-inline justify-content-around fw-normal "><i class="fas fa-user"></i></li>
+            </ul>
+        </div>
+        </div> 
+     
+        <div class="overlay">
+            <div class="cart no">
+                <p class="d-inline h4">Shop</p>
+                <button class="x"><i class="fa-solid fa-xmark"></i></button>
+                <div><h6>There are no products</h6></div>
+                <button class="buy">Buy Now</button>
+            </div>
+        </div>
+
+    <header id="Home">
+        <div id="lio-carousel" class="vh-100">
+            <div class="lio-carousel-inner h-100">
+
+                <!-- red Shoe -->
+
+                <div class="lio-carousel-item red h-100">
+                    <div class="container h-90">
+                    <div class="row vh-90">
+                        <div class="col-lg-5 part1 ">
+                            <div class="item h-100">
+                                <h4 class="text-danger">Nike Red Shoes</h4>
+                                <h2 class="h1-lg">Nike Metcon Shoes</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet porro dolores, facere iusto harum veniam sit officia necessitatibus delectus! Vel!</p>
+                                <button type="button" class="btn mainbutton"><a href="#latest">See More</a></button>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-7 part2">
+                            <div class="item h-100">
+                                <img src="img/home-text-1-6b65fe86.png" class="img-fluid" >
+                                <img src="img/home-shoe-1.png"  class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div> 
+
+                <!-- blue Shoe -->
+                
+                <div class="lio-carousel-item blue h-100">
+                    <div class="container h-90">
+                    <div class="row vh-90 ">
+                        <div class="col-lg-5 part1">
+                            <div class="item h-100">
+                                <h4 class="text-primary">Nike blue Shoes</h4>
+                                <h2 class="h1-lg">Nike Metcon Shoes</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos consectetur dolores expedita ex illum! Amet mollitia nisi tenetur odit minima voluptates quibusdam ullam optio, distinctio rerum at praesentium voluptas quis?</p>
+                                <button type="button" class="btn mainbutton">See More</button>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-7 part2">
+                            <div class="item">
+                                <img src="img/home-text-2.png" class="img-fluid" >
+                                <img src="img/home-shoe-2.png"  class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- yellow Shoe -->
+
+                 <div class="lio-carousel-item yellow h-100">
+                    <div class="container h-90">
+                    <div class="row vh-90">
+                        <div class="col-lg-5 part1">
+                            <div class="item h-100">
+                                <h4 class="text-warning">Nike Red Shoes</h4>
+                                <h2 class="h1-lg">Nike Metcon Shoes</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos consectetur dolores expedita ex illum! Amet mollitia nisi tenetur odit minima voluptates quibusdam ullam optio, distinctio rerum at praesentium voluptas quis?</p>
+                                <button type="button" class="btn mainbutton">See More</button>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-7 part2">
+                            <div class="item">
+                                <img src="img/home-text-3.png" class="img-fluid" >
+                                <img src="img/home-shoe-3.png"  class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <button class="prev "><i class="fa-solid fa-angle-left"></i></button>
+            <button class="next "><i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </header>
+    <div class=" offers ">
+            <div class="left img ">
+                <a href=""><img src="img/home-banner-1.png" alt=""></a>          
+
+            </div>
+            <div class="right img ">
+                <a href=""><img src="img/home-banner-2.png" alt=""></a>          
+        </div>
+    </div>
+
+
+
+    <div class="latest" id="latest">
+        <div class="title">
+            <img class="inner-logo1" src="img/first-correct.png" alt="">
+            <h2 >LATEST PRODUCTS</h2>
+        </div>
+        <div class="product">
+        <div class="item">
+            <div class="prespective d-flex flex-column">
+               <div class="img"> <img src="img/products/17-1.png" alt=""></div>
+               <div class="img"> <img src="img/products/17-2.png" alt=""></div>
+               <div class="img"> <img src="img/products/17-3.png" alt=""></div>
+               <div class="img"> <img src="img/products/17-4.png" alt=""></div>
+            </div>
+            <div class="shoe">
+                <img src="img/products/17-1.png" alt="">
+            </div>
+            <div class="desc">
+                <h3>New Nike Black Airmax Shoes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor corporis porro blanditiis nostrum ut eius officiis vero aperiam voluptates, recusandae sed, earum magnam nihil ipsam iure a harum labore neque veritatis aliquam quam adipisci! Voluptas odio similique, maiores maxime iste officiis sed fugiat odit facilis in, officia veniam repellendus!</p>
+                <div class="price">
+                    <h5 class="fst-bold d-inline">Price :</h5>
+                    <p class="text-decoration-line-through text-danger fs-6 d-inline">120<sup>$</sup></p>
+                    <p class=" fs-6 d-inline">96<sup>$</sup></p>
+                </div>
+                <div class="size">
+                <h5 class="fst-bold d-inline">Size :</h5>
+                <ul class="list-unstyled d-inline">
+                    <button class="select"><li class="list-inline-item d-inline">40</li></button>
+                    <button><li class="list-inline-item d-inline">41</li></button>
+                    <button><li class="list-inline-item d-inline">42</li></button>
+                    <button><li class="list-inline-item d-inline">43</li></button>
+                </ul>
+                </div>
+                <button class="add-cart add">
+                    Add To Cart
+                </button>
+
+            </div>
+        </div>
+        <div class="item">
+            <div class="prespective d-flex flex-column">
+               <div class="img"> <img src="img/products/18-1.png" alt=""></div>
+               <div class="img"> <img src="img/products/18-2.png" alt=""></div>
+               <div class="img"> <img src="img/products/18-3.png" alt=""></div>
+               <div class="img"> <img src="img/products/18-4.png" alt=""></div>
+            </div>
+            <div class="shoe">
+                <img src="img/products/18-1.png" alt="">
+            </div>
+            <div class="desc">
+                <h3>New Nike White Airmax Shoes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor corporis porro blanditiis nostrum ut eius officiis vero aperiam voluptates, recusandae sed, earum magnam nihil ipsam iure a harum labore neque veritatis aliquam quam adipisci! Voluptas odio similique, maiores maxime iste officiis sed fugiat odit facilis in, officia veniam repellendus!</p>
+                <div class="price">
+                <h5 class="fst-bold d-inline">Price :</h5>
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">140<sup>$</sup></p>
+                <p class=" fs-6 d-inline">112<sup>$</sup></p>
+                </div>
+                <div class="size">
+                <h5 class="fst-bold d-inline">Size :</h5>
+                 <ul class="list-unstyled d-inline">
+                    <button class="select"><li class="list-inline-item d-inline">40</li></button>
+                    <button><li class="list-inline-item d-inline">41</li></button>
+                    <button><li class="list-inline-item d-inline">42</li></button>
+                    <button><li class="list-inline-item d-inline">43</li></button>
+                </ul>
+                </div>
+                <button class="add-cart add">
+                    Add To Cart
+                </button>
+
+            </div>
+        </div>
+         <div class="item">
+            <div class="prespective d-flex flex-column">
+               <div class="img"> <img src="img/products/19-1.png" alt=""></div>
+               <div class="img"> <img src="img/products/19-2.png" alt=""></div>
+               <div class="img"> <img src="img/products/19-3.png" alt=""></div>
+               <div class="img"> <img src="img/products/19-4.png" alt=""></div>
+            </div>
+            <div class="shoe">
+                <img src="img/products/19-1.png" alt="">
+            </div>
+            <div class="desc">
+                <h3>New Nike Mix Airmax Shoes</h3>
+                <p class="text-body-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor corporis porro blanditiis nostrum ut eius officiis vero aperiam voluptates, recusandae sed, earum magnam nihil ipsam iure a harum labore neque veritatis aliquam quam adipisci! Voluptas odio similique, maiores maxime iste officiis sed fugiat odit facilis in, officia veniam repellendus!</p>
+                <div class="price">
+                    <h5 class="fst-bold d-inline">Price :</h5>
+                    <p class="text-decoration-line-through text-danger fs-6 d-inline">160<sup>$</sup></p>
+                    <p class=" fs-6 d-inline">128<sup>$</sup></p>
+                </div>
+                <div class="size">
+                <h5 class="fst-bold d-inline">Size :</h5>
+                 <ul class="list-unstyled d-inline">
+                    <button class="select"><li class="list-inline-item d-inline">40</li></button>
+                    <button><li class="list-inline-item d-inline">41</li></button>
+                    <button><li class="list-inline-item d-inline">42</li></button>
+                    <button><li class="list-inline-item d-inline">43</li></button>
+                </ul>
+                </div>
+                <button class="add-cart add">
+                    Add To Cart
+                </button>
+
+            </div>
+        </div>
+
+        
+    </div>
+
+    
+
+    
+    </div>
+
+
+    <!-- featured -->
+    <div class="featured" id="featured">
+        <div class="title">
+            <img class="inner-logo2" src="img/first-correct.png" alt="">
+            <h2 >LATEST PRODUCTS</h2>
+         </div>
+
+         <div class="products">
+            <div class="item ">
+                <p class="dis ">
+                    -16%
+                </p>
+                <div class="img">
+                    <img src="img/products/1-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/1-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/1-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/1-3.png" alt=""></button></li>
+                    <li ><button><img src="img/products/1-4.png" alt=""></button></li>
+                
+                </ul>
+                <h6>Basketball Shoes</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">160<sup>$</sup></p>
+                <p class=" fs-6 d-inline">128<sup>$</sup></p>
+                </div>
+
+            </div>
+             <div class="item ">
+                <p class="dis ">
+                    -18%
+                </p>
+                <div class="img">
+                    <img src="img/products/2-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/2-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/2-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/2-3.png" alt=""></button></li>
+                    <li ><button><img src="img/products/2-4.png" alt=""></button></li>
+                                    
+                </ul>
+                <h6>Peak DH3 Mens</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">158<sup>$</sup></p>
+                <p class=" fs-6 d-inline">130.1<sup>$</sup></p>
+                </div>
+
+            </div>
+             <div class="item ">
+                <p class="dis ">
+                    -20%
+                </p>
+                <div class="img">
+                    <img src="img/products/3-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/3-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/3-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/3-3.png" alt=""></button></li>
+                    <li ><button><img src="img/products/3-4.png" alt=""></button></li>
+                
+                </ul>
+                <h6>Fun-Running VII</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">146.55<sup>$</sup></p>
+                <p class=" fs-6 d-inline">117.24<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -10%
+                </p>
+                <div class="img">
+                    <img src="img/products/4-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/4-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/4-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/4-3.png" alt=""></button></li>
+                    <li ><button><img src="img/products/4-4.png" alt=""></button></li>
+                
+                </ul>
+                <h6>2.0 INK Sport Running</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">132.66<sup>$</sup></p>
+                <p class=" fs-6 d-inline">119.39<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <div class="img">
+                    <img src="img/products/5-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/5-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/5-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/5-3.png" alt=""></button></li>
+                </ul>
+                <h6>Asics Metarise</h6>
+                   <div class="price">
+                <p class="fs-6 d-inline">276.88<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -12%
+                </p>
+                <div class="img">
+                    <img src="img/products/6-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/6-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/6-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/6-3.png" alt=""></button></li>
+                    <li ><button><img src="img/products/6-4.png" alt=""></button></li>
+                </ul>
+                <h6>Basketball Shoes</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">160<sup>$</sup></p>
+                <p class=" fs-6 d-inline">128<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -12%
+                </p>
+                <div class="img">
+                    <img src="img/products/7-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/7-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/7-2.png" alt=""></button></li>
+                </ul>
+                <h6>Vapor Cage 4</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">135<sup>$</sup></p>
+                <p class=" fs-6 d-inline">118.80<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -13%
+                </p>
+                <div class="img">
+                    <img src="img/products/8-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/8-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/8-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/8-3.png" alt=""></button></li>
+                
+                </ul>
+                <h6>Don Issue 3</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">176<sup>$</sup></p>
+                <p class=" fs-6 d-inline">153.12<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -13%
+                </p>
+                <div class="img">
+                    <img src="img/products/9-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/9-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/9-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/9-3.png" alt=""></button></li>
+                </ul>
+                <h6>Babolat JET</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">135<sup>$</sup></p>
+                <p class=" fs-6 d-inline">117.45<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -12%
+                </p>
+                <div class="img">
+                    <img src="img/products/10-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/10-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/10-2.png" alt=""></button></li>
+                </ul>
+                <h6>Dita STBL 750</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">135<sup>$</sup></p>
+                <p class=" fs-6 d-inline">118.80<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -12%
+                </p>
+                <div class="img">
+                    <img src="img/products/11-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/11-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/11-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/11-3.png" alt=""></button></li>
+                </ul>
+                <h6>Triumph 19 Women</h6>
+                <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">215<sup>$</sup></p>
+                <p class=" fs-6 d-inline">189.20<sup>$</sup></p>
+                </div>
+
+            </div>
+
+            <div class="item ">
+                <div class="img">
+                    <img src="img/products/12-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/12-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/12-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/12-3.png" alt=""></button></li>
+                </ul>
+                <h6>Triumph 19 Men</h6>
+                   <div class="price">
+                <p class=" fs-6 d-inline">243.00<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+
+                <div class="img">
+                    <img src="img/products/13-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/13-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/13-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/13-3.png" alt=""></button></li>
+                </ul>
+                <h6>On Cloudflyer Men</h6>
+                   <div class="price">
+                <p class=" fs-6 d-inline">213.00<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+              
+                <div class="img">
+                    <img src="img/products/14-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/14-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/14-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/14-3.png" alt=""></button></li>
+                </ul>
+                <h6>Aero Wave 19</h6>
+                   <div class="price">
+                <p class=" fs-6 d-inline">188.25<sup>$</sup></p>
+                </div>
+
+            </div>
+            <div class="item ">
+                <p class="dis ">
+                    -12%
+                </p>
+                <div class="img">
+                    <img src="img/products/15-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/15-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/15-2.png" alt=""></button></li>
+                    <li ><button><img src="img/products/15-3.png" alt=""></button></li>
+                    <li ><button><img src="img/products/15-4.png" alt=""></button></li>
+                </ul>
+                <h6>NIKE Women's Hyperace</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">178.25<sup>$</sup></p>
+                <p class=" fs-6 d-inline">156.86<sup>$</sup></p>
+                </div>
+
+            </div>
+
+            <div class="item ">
+                <p class="dis ">
+                    -15%
+                </p>
+                <div class="img">
+                    <img src="img/products/16-1.png" >
+                </div>
+                <button class="btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                <ul class="circles">
+                    <li ><button class="select"><img src="img/products/16-1.png" alt=""></button></li>
+                    <li ><button><img src="img/products/16-2.png" alt=""></button></li>
+                </ul>
+                <h6>NIKE Man's Hyperace</h6>
+                   <div class="price">
+                <p class="text-decoration-line-through text-danger fs-6 d-inline">188<sup>$</sup></p>
+                <p class=" fs-6 d-inline">159.80<sup>$</sup></p>
+                </div>
+
+            </div>
+         </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/bootstrab.js"></script>
+    <script src="js/shoes.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/nike.js"></script>
+</body>
+</html>

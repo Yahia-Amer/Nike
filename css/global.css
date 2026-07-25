@@ -1,0 +1,17 @@
+:root{
+    --main-color: #fb2527;
+    --first-color:#fb2527;
+    --secund-color:#0E7AD7;
+    --third-color:#EC9720;
+}
+
+.mainbutton{
+    color: var(--main-color) !important;
+    border: 1px solid var(--main-color) !important;
+    transition: 0.5s !important;
+}
+.mainbutton:hover{
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+    transition: 0.5s;
+}
