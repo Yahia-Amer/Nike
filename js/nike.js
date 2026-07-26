@@ -8,6 +8,7 @@ let carsouel = document.querySelector("#lio-carousel"),
     circles=document.querySelectorAll(".featured .products .item .circles li button"),
     shoeGallery=document.querySelectorAll(".featured .products .item .img img");
 
+
  
 
 
@@ -171,10 +172,10 @@ okButton.addEventListener("click", function () {
 });
     let cartOverlay=document.querySelector(".overlay"),
     cartIcon=document.querySelector(".nav .nav-items .func .shop"),
-    cart=document.querySelector(".overlay .cart"),
+    cartBox=document.querySelector(".overlay .cart"),
     cartButton=document.querySelector(".overlay .cart .buy"),
     xIcon=document.querySelector(".overlay .cart .x"),
-    div=cart.querySelector("div");
+    div=cartBox.querySelector("div");
 
 
     xIcon.addEventListener("click",function(){
@@ -182,7 +183,7 @@ okButton.addEventListener("click", function () {
     })
         cartIcon.addEventListener("click", function () {  
                 cartOverlay.classList.toggle("show");
-                if(cart.classList.contains("no")){
+                if(cartBox.classList.contains("no")){
                     cartButton.style.display="none";
                     div.style.display="block";
                 }
@@ -334,3 +335,4 @@ circles.forEach(element=>{
         img.src=currentImg.src;
     })
 })  
+
