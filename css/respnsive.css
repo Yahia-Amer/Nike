@@ -84,6 +84,21 @@
 .overlaySuccess .success{
         width:60%;
     }
+    .popup-add-cart{
+        width: 100%;
+        transform: translateY(0);
+    }
+    .overlay .cart{
+        width: 92%;
+    }
+    .overlay .cart.yes{
+        width: 92%;
+        min-height: 420px;
+    }
+    .overlay .cart .cart-items{
+        grid-template-columns: 1fr;
+        max-height: 55vh;
+    }
 
 
     /* HEADER */
@@ -119,7 +134,7 @@ header #lio-carousel .next {
 
 header #lio-carousel .prev {
     bottom: 50%;
-    left: 70%;
+    left: 68%;
 }
 .offers{
 flex-direction: column;
@@ -279,7 +294,7 @@ header #lio-carousel .next {
 
 header #lio-carousel .prev {
     bottom: 50%;
-    left: 77%;
+    left: 70%;
 }
 
 .latest .title{
