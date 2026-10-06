@@ -7,14 +7,13 @@
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 </style>
-<!-- <link rel="stylesheet" href="css/all.min.css"> -->
 <link rel="stylesheet" href="css/fonts.css">
 <link rel="stylesheet" href="css/global.css">
 <link rel="stylesheet" href="css/nike.css">
-<link rel="stylesheet" href="css/respnsive.css">
+<link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<link rel="icon" href="" >
+<link rel="icon" href="img/logo.png" type="image/png">
 </head>
 <body>
     
@@ -41,7 +40,7 @@
             </ul>
 
             <ul class="func"> 
-                <li class="d-inline justify-content-around fw-normal "><i class="fas fa-heart"></i></li>
+                <li class="d-inline justify-content-around fw-normal fav"><i class="fas fa-heart"></i></li>
                 <li class="d-inline justify-content-around fw-normal shop"><i class="fas fa-shopping-cart"></i></li>
                 <li class="d-inline justify-content-around fw-normal reg"><i class="fas fa-user"></i></li>
             </ul>
@@ -54,6 +53,13 @@
                 <button class="x"><i class="fa-solid fa-xmark"></i></button>
                 <div><h6>There are no products</h6></div>
                 <button class="buy">Buy Now</button>
+            </div>
+        </div>
+        <div class="overlay overlay-fav">
+            <div class="cart fav-box no">
+                <p class="d-inline h4">Favorites</p>
+                <button class="x"><i class="fa-solid fa-xmark"></i></button>
+                <div><h6>There are no favorites</h6></div>
             </div>
         </div>
 <div class="overlaySuccess">
@@ -74,11 +80,31 @@
         <div class="overlayReg ">
             <div class="regest">
                 <div class="title">
-                     <p class="d-inline h4">Login</p>
-                     <button class="x"><i class="fa-solid fa-xmark"></i></button>
+                     <p class="d-inline h4" id="formTitle">Login</p>
+                     <div class="title-actions">
+                        <button class="x"><i class="fa-solid fa-xmark"></i></button>
+                     </div>
                </div>
 
-                <div class="login">
+                <div class="user-session-box" id="userSessionBox">
+                    <div class="us-avatar"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="us-info">
+                        <h6 id="usName">User Name</h6>
+                        <p id="usEmail">user@example.com</p>
+                    </div>
+                </div>
+
+                <button class="logout-btn" id="logoutBtn" title="Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="logout-label">Logout</span>
+                </button>
+
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="register">Register</button>
+                </div>
+
+                <div class="login auth-form active" data-form="login">
                     <input type="text" placeholder="User Name *" id="userName">
                     <input type="password" placeholder="Password *" id="password" >
                     <ul class="password-rules">
@@ -102,8 +128,41 @@
                              One number
                          </li>
                     </ul>
+                    <div class="auth-msg error" id="loginError"></div>
+                    <button class="done" id="loginBtn" disabled>Login</button>
+                </div>
 
-    <button class="done" disabled>Login</button>
+                <div class="register auth-form" data-form="register">
+                    <input type="text" placeholder="Full Name *" id="regName">
+                    <input type="text" placeholder="User Name *" id="regUserName">
+                    <input type="email" placeholder="Email *" id="regEmail">
+                    <input type="password" placeholder="Password *" id="regPassword" >
+                    <input type="password" placeholder="Confirm Password *" id="regConfirmPassword" >
+                    <ul class="password-rules reg-rules">
+                         <li id="regLength">
+                             <i class="fa-solid fa-xmark"></i>
+                             At least 8 characters
+                         </li>
+                         <li id="regUpper">
+                             <i class="fa-solid fa-xmark"></i>
+                             One uppercase letter
+                         </li>
+                         <li id="regLower">
+                             <i class="fa-solid fa-xmark"></i>
+                             One lowercase letter
+                         </li>
+                         <li id="regNumber">
+                             <i class="fa-solid fa-xmark"></i>
+                             One number
+                         </li>
+                         <li id="regMatch">
+                             <i class="fa-solid fa-xmark"></i>
+                             Passwords match
+                         </li>
+                    </ul>
+                    <div class="auth-msg error" id="regError"></div>
+                    <div class="auth-msg success" id="regSuccess"></div>
+                    <button class="done" id="registerBtn" disabled>Register</button>
                 </div>
             </div>
         </div>
@@ -112,72 +171,66 @@
         <div id="lio-carousel" class="vh-100">
             <div class="lio-carousel-inner h-100">
 
-                <!-- red Shoe -->
-
-                <div class="lio-carousel-item red h-100">
+                <div class="lio-carousel-item red h-100 active">
                     <div class="container h-90">
                     <div class="row vh-90">
                         <div class="col-lg-5 part1 ">
-                            <div class="item h-100">
-                                <h4 class="text-danger">Nike Red Shoes</h4>
-                                <h2 class="h1-lg">Nike Metcon Shoes</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet porro dolores, facere iusto harum veniam sit officia necessitatibus delectus! Vel!</p>
+                            <div class="item h-100 start">
+                                <h4 class="text-danger">Nike Air Max Pulse</h4>
+                                <h2 class="h1-lg">Nike Metcon 9 — Fire Red</h2>
+                                <p>Built for heavy training days, the Metcon 9 in Fire Red pairs a wide, stable heel base with responsive React foam. The breathable mesh upper keeps your foot locked in through squats, sprints, and box jumps, while the bold red Swoosh delivers signature Nike attitude on the gym floor.</p>
                                 <button type="button" class="btn mainbutton"><a href="#latest">See More</a></button>
 
                             </div>
                         </div>
                         <div class="col-lg-7 part2">
                             <div class="item h-100">
-                                <img src="img/home-text-1-6b65fe86.png" class="img-fluid" >
-                                <img src="img/home-shoe-1.png"  class="img-fluid">
+                                <img src="img/home-text-1-6b65fe86.webp" class="img-fluid" width="581" height="350" decoding="async">
+                                <img src="img/home-shoe-1.webp" class="img-fluid" width="540" height="420" decoding="async">
                             </div>
                         </div>
                     </div>
                     </div>
                 </div> 
 
-                <!-- blue Shoe -->
-                
                 <div class="lio-carousel-item blue h-100">
                     <div class="container h-90">
                     <div class="row vh-90 ">
                         <div class="col-lg-5 part1">
                             <div class="item h-100">
-                                <h4 class="text-primary">Nike blue Shoes</h4>
-                                <h2 class="h1-lg">Nike Metcon Shoes</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos consectetur dolores expedita ex illum! Amet mollitia nisi tenetur odit minima voluptates quibusdam ullam optio, distinctio rerum at praesentium voluptas quis?</p>
+                                <h4 class="text-primary">Nike Zoom Pegasus 41</h4>
+                                <h2 class="h1-lg">Nike Metcon 9 — Royal Blue</h2>
+                                <p>Engineered for explosive agility, the Royal Blue Metcon 9 features a dual-density midsole that absorbs impact on heavy lifts and springs back on cardio bursts. The reinforced rubber wrap on the forefoot stands up to rope climbs and lateral moves, while the deep blue finish keeps your style sharp from warm-up to cool-down.</p>
                                 <button type="button" class="btn mainbutton">See More</button>
 
                             </div>
                         </div>
                         <div class="col-lg-7 part2">
                             <div class="item">
-                                <img src="img/home-text-2.png" class="img-fluid" >
-                                <img src="img/home-shoe-2.png"  class="img-fluid">
+                                <img src="img/home-text-2.webp" class="img-fluid" width="581" height="350" decoding="async">
+                                <img src="img/home-shoe-2.webp" class="img-fluid" width="540" height="420" decoding="async">
                             </div>
                         </div>
                     </div>
                     </div>
                 </div>
 
-                <!-- yellow Shoe -->
-
                  <div class="lio-carousel-item yellow h-100">
                     <div class="container h-90">
                     <div class="row vh-90">
                         <div class="col-lg-5 part1">
                             <div class="item h-100">
-                                <h4 class="text-warning">Nike Red Shoes</h4>
-                                <h2 class="h1-lg">Nike Metcon Shoes</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos consectetur dolores expedita ex illum! Amet mollitia nisi tenetur odit minima voluptates quibusdam ullam optio, distinctio rerum at praesentium voluptas quis?</p>
+                                <h4 class="text-warning">Nike Free Run Trail</h4>
+                                <h2 class="h1-lg">Nike Metcon 9 — Lightning Gold</h2>
+                                <p>Chase new PRs in the Lightning Gold Metcon 9. The textured rubber outsole bites into any surface, the flexible forefoot lets your foot move naturally during dynamic circuits, and the radiant gold-accented upper turns every rep into a statement. Train hard, train bright, and stand out in every class.</p>
                                 <button type="button" class="btn mainbutton">See More</button>
 
                             </div>
                         </div>
                         <div class="col-lg-7 part2">
                             <div class="item">
-                                <img src="img/home-text-3.png" class="img-fluid" >
-                                <img src="img/home-shoe-3.png"  class="img-fluid">
+                                <img src="img/home-text-3.webp" class="img-fluid" width="581" height="350" decoding="async">
+                                <img src="img/home-shoe-3.webp" class="img-fluid" width="540" height="420" decoding="async">
                             </div>
                         </div>
                     </div>
@@ -190,11 +243,11 @@
     </header>
     <div class=" offers ">
             <div class="left img ">
-                <a href=""><img src="img/home-banner-1.png" alt=""></a>          
+                <a href=""><img src="img/home-banner-1.webp" alt="" width="700" height="260" loading="lazy" decoding="async"></a>
 
             </div>
             <div class="right img ">
-                <a href=""><img src="img/home-banner-2.png" alt=""></a>          
+                <a href=""><img src="img/home-banner-2.webp" alt="" width="700" height="260" loading="lazy" decoding="async"></a>
         </div>
     </div>
 
@@ -202,23 +255,23 @@
 
     <div class="latest" id="latest">
         <div class="title">
-            <img class="inner-logo1" src="img/first-correct.png" alt="">
+            <img class="inner-logo1" src="img/first-correct.webp" alt="" width="180" height="80" loading="lazy" decoding="async">
             <h2 >LATEST PRODUCTS</h2>
         </div>
         <div class="product">
         <div class="item "data-id="17">
             <div class="prespective d-flex flex-column">
-               <div class="img"> <img src="img/products/17-1.png" alt=""></div>
-               <div class="img"> <img src="img/products/17-2.png" alt=""></div>
-               <div class="img"> <img src="img/products/17-3.png" alt=""></div>
-               <div class="img"> <img src="img/products/17-4.png" alt=""></div>
+               <div class="img"> <img src="img/products/17-1.webp" alt=""  loading="lazy" decoding="async"></div>
+               <div class="img"> <img src="img/products/17-2.webp" alt=""  loading="lazy" decoding="async"></div>
+               <div class="img"> <img src="img/products/17-3.webp" alt=""  loading="lazy" decoding="async"></div>
+               <div class="img"> <img src="img/products/17-4.webp" alt=""  loading="lazy" decoding="async"></div>
             </div>
             <div class="shoe">
-                <img src="img/products/17-1.png" alt="">
+                <img src="img/products/17-1.webp" alt="" width="300" height="300" loading="lazy" decoding="async">
             </div>
             <div class="desc">
                 <h3>New Nike Black Airmax Shoes</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor corporis porro blanditiis nostrum ut eius officiis vero aperiam voluptates, recusandae sed, earum magnam nihil ipsam iure a harum labore neque veritatis aliquam quam adipisci! Voluptas odio similique, maiores maxime iste officiis sed fugiat odit facilis in, officia veniam repellendus!</p>
+                <p>Dressed in a stealthy triple-black finish, this Air Max pairs engineered mesh with visible Max Air cushioning under the heel for shock-absorbing comfort on every step. The rubber waffle outsole adds durable traction while the stitched leather overlays lock in a premium, street-ready silhouette from dawn runs to late-night city walks.</p>
                 <div class="price">
                     <h5 class="fst-bold d-inline">Price :</h5>
                     <p class="text-decoration-line-through text-danger fs-6 d-inline">120<sup>$</sup></p>
@@ -233,25 +286,34 @@
                     <button><li class="list-inline-item d-inline">43</li></button>
                 </ul>
                 </div>
+                <div class="latest-actions">
+                <div class="qty-control">
+                    <span class="qty-label">Qty</span>
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <span class="qty-value">1</span>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase"><i class="fa-solid fa-plus"></i></button>
+                </div>
                 <button class="add-cart add  ">
                     Add To Cart
                 </button>
+                <button type="button" class="fav-btn" aria-label="Add to favorites"><i class="fas fa-heart"></i></button>
+                </div>
 
             </div>
         </div>
         <div class="item" data-id="18">
             <div class="prespective d-flex flex-column">
-               <div class="img"> <img src="img/products/18-1.png" alt=""></div>
-               <div class="img"> <img src="img/products/18-2.png" alt=""></div>
-               <div class="img"> <img src="img/products/18-3.png" alt=""></div>
-               <div class="img"> <img src="img/products/18-4.png" alt=""></div>
+               <div class="img"> <img src="img/products/18-1.webp" alt=""></div>
+               <div class="img"> <img src="img/products/18-2.webp" alt=""></div>
+               <div class="img"> <img src="img/products/18-3.webp" alt=""></div>
+               <div class="img"> <img src="img/products/18-4.webp" alt=""></div>
             </div>
             <div class="shoe">
-                <img src="img/products/18-1.png" alt="">
+                <img src="img/products/18-1.webp" alt="">
             </div>
             <div class="desc">
                 <h3>New Nike White Airmax Shoes</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor corporis porro blanditiis nostrum ut eius officiis vero aperiam voluptates, recusandae sed, earum magnam nihil ipsam iure a harum labore neque veritatis aliquam quam adipisci! Voluptas odio similique, maiores maxime iste officiis sed fugiat odit facilis in, officia veniam repellendus!</p>
+                <p>A clean, timeless colorway for every wardrobe — this crisp white Air Max wraps your foot in a breathable knit upper with tonal leather accents. The signature Air-Sole unit softens every landing, the full-length foam midsole delivers cloud-like stride after stride, and the translucent rubber outsole lets the classic design shine with jeans, joggers, or uniforms.</p>
                 <div class="price">
                 <h5 class="fst-bold d-inline">Price :</h5>
                 <p class="text-decoration-line-through text-danger fs-6 d-inline">140<sup>$</sup></p>
@@ -266,25 +328,34 @@
                     <button><li class="list-inline-item d-inline">43</li></button>
                 </ul>
                 </div>
+                <div class="latest-actions">
+                <div class="qty-control">
+                    <span class="qty-label">Qty</span>
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <span class="qty-value">1</span>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase"><i class="fa-solid fa-plus"></i></button>
+                </div>
                 <button class="add-cart add  ">
                     Add To Cart
                 </button>
+                <button type="button" class="fav-btn" aria-label="Add to favorites"><i class="fas fa-heart"></i></button>
+                </div>
 
             </div>
         </div>
          <div class="item" data-id="19">
             <div class="prespective d-flex flex-column">
-               <div class="img"> <img src="img/products/19-1.png" alt=""></div>
-               <div class="img"> <img src="img/products/19-2.png" alt=""></div>
-               <div class="img"> <img src="img/products/19-3.png" alt=""></div>
-               <div class="img"> <img src="img/products/19-4.png" alt=""></div>
+               <div class="img"> <img src="img/products/19-1.webp" alt=""></div>
+               <div class="img"> <img src="img/products/19-2.webp" alt=""></div>
+               <div class="img"> <img src="img/products/19-3.webp" alt=""></div>
+               <div class="img"> <img src="img/products/19-4.webp" alt=""></div>
             </div>
             <div class="shoe">
-                <img src="img/products/19-1.png" alt="">
+                <img src="img/products/19-1.webp" alt="">
             </div>
             <div class="desc">
                 <h3>New Nike Mix Airmax Shoes</h3>
-                <p class="text-body-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat dolor corporis porro blanditiis nostrum ut eius officiis vero aperiam voluptates, recusandae sed, earum magnam nihil ipsam iure a harum labore neque veritatis aliquam quam adipisci! Voluptas odio similique, maiores maxime iste officiis sed fugiat odit facilis in, officia veniam repellendus!</p>
+                <p>Bold, expressive, and impossible to ignore — the Mix Airmax drops a blended palette of tones across a layered upper of mesh, suede, and synthetic panels. Multi-density foam and a visible Air unit keep your ride responsive, while the mixed Swoosh branding and mismatched heel tabs give every pair a handcrafted, one-of-one streetwear vibe.</p>
                 <div class="price">
                     <h5 class="fst-bold d-inline">Price :</h5>
                     <p class="text-decoration-line-through text-danger fs-6 d-inline">160<sup>$</sup></p>
@@ -299,9 +370,18 @@
                     <button><li class="list-inline-item d-inline">43</li></button>
                 </ul>
                 </div>
+                <div class="latest-actions">
+                <div class="qty-control">
+                    <span class="qty-label">Qty</span>
+                    <button type="button" class="qty-btn qty-minus" aria-label="Decrease"><i class="fa-solid fa-minus"></i></button>
+                    <span class="qty-value">1</span>
+                    <button type="button" class="qty-btn qty-plus" aria-label="Increase"><i class="fa-solid fa-plus"></i></button>
+                </div>
                 <button class="add-cart add  ">
                     Add To Cart
                 </button>
+                <button type="button" class="fav-btn" aria-label="Add to favorites"><i class="fas fa-heart"></i></button>
+                </div>
 
             </div>
         </div>
@@ -315,27 +395,26 @@
     </div>
 
 
-    <!-- featured -->
     <div class="featured" id="featured">
         <div class="title">
-            <img class="inner-logo2" src="img/first-correct.png" alt="">
-            <h2 >LATEST PRODUCTS</h2>
+            <img class="inner-logo2" src="img/first-correct.webp" alt="">
+            <h2 >LATEST FEATURED</h2>
          </div>
 
          <div class="products">
-            <div class="item data-id="1"">
+            <div class="item" data-id="1">
                 <p class="dis ">
                     -16%
                 </p>
                 <div class="img">
-                    <img src="img/products/1-1.png" >
+                    <img src="img/products/1-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/1-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/1-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/1-3.png" alt=""></button></li>
-                    <li ><button><img src="img/products/1-4.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/1-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/1-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/1-3.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/1-4.webp" alt=""></button></li>
                 
                 </ul>
                 <h6>Basketball Shoes</h6>
@@ -344,7 +423,7 @@
                 <p class=" fs-6 d-inline">128<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Built for relentless forwards, the Nike Giannis Immortality 3 combines a cushioned Zoom Air strobel with a wide, traction-heavy outsole. The lightweight mesh upper locks your foot in during euro-steps, rebounds, and fast breaks while the antetokounmpo crest on the heel pays tribute to the Greek Freak's winning DNA.
     </p>
 
     <div class="sizes-data d-none">
@@ -367,14 +446,14 @@
                     -18%
                 </p>
                 <div class="img">
-                    <img src="img/products/2-1.png" >
+                    <img src="img/products/2-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/2-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/2-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/2-3.png" alt=""></button></li>
-                    <li ><button><img src="img/products/2-4.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/2-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/2-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/2-3.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/2-4.webp" alt=""></button></li>
                                     
                 </ul>
                 <h6>Peak DH3 Mens</h6>
@@ -383,7 +462,7 @@
                 <p class=" fs-6 d-inline">130.1<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Designed with Lou Williams signature input, the Peak DH3 Men puts responsive cushioning under every drive to the rim. A lightweight mono-mesh upper ventilates during intense minutes while the full-length Taichi adaptive midsole softens landings and snaps back with energy for step-back jumpers and explosive first steps.
     </p>
 
     <div class="sizes-data d-none">
@@ -405,14 +484,14 @@
                     -20%
                 </p>
                 <div class="img">
-                    <img src="img/products/3-1.png" >
+                    <img src="img/products/3-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/3-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/3-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/3-3.png" alt=""></button></li>
-                    <li ><button><img src="img/products/3-4.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/3-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/3-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/3-3.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/3-4.webp" alt=""></button></li>
                 
                 </ul>
                 <h6>Fun-Running VII</h6>
@@ -421,7 +500,7 @@
                 <p class=" fs-6 d-inline">117.24<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Log happy miles on asphalt or treadmill in the Fun-Running VII. The DNA Loft v3 foam delivers plush, forgiving cushioning from heel strike to toe-off, the engineered air mesh upper hugs your foot without hot spots, and the flexible rubber outsole flexes naturally with every stride — perfect for 5K loops, long walks, and daily conditioning.
     </p>
 
     <div class="sizes-data d-none">
@@ -443,14 +522,14 @@
                     -10%
                 </p>
                 <div class="img">
-                    <img src="img/products/4-1.png" >
+                    <img src="img/products/4-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/4-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/4-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/4-3.png" alt=""></button></li>
-                    <li ><button><img src="img/products/4-4.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/4-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/4-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/4-3.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/4-4.webp" alt=""></button></li>
                 
                 </ul>
                 <h6>2.0 INK Sport Running</h6>
@@ -459,7 +538,7 @@
                 <p class=" fs-6 d-inline">119.39<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        The INK Sport Running 2.0 blends a bold, color-blocked upper with a sculpted PROFLY midsole for runners who want pop under every step. The engineered jacquard mesh provides strategic stretch where your foot needs it most, while the early-stage Meta-Rocker geometry propels you smoothly forward through every phase of the gait cycle.
     </p>
 
     <div class="sizes-data d-none">
@@ -479,20 +558,20 @@
             </div>
             <div class="item " data-id="5">
                 <div class="img">
-                    <img src="img/products/5-1.png" >
+                    <img src="img/products/5-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/5-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/5-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/5-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/5-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/5-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/5-3.webp" alt=""></button></li>
                 </ul>
                 <h6>Asics Metarise</h6>
                    <div class="price">
                 <p class="fs-6 d-inline">276.88<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Built for elite volleyball, the Asics Metarise Tokyo helps you explode higher and land softer on every attack. The FLYTEFOAM PROPEL midsole returns energy at the jump, while the curved heel and flex grooves on the outsole enhance cut and lateral agility. The supportive engineered mesh upper wraps the midfoot secure for quick sets, powerful serves, and long rally matches.
     </p>
 
     <div class="sizes-data d-none">
@@ -515,14 +594,14 @@
                     -12%
                 </p>
                 <div class="img">
-                    <img src="img/products/6-1.png" >
+                    <img src="img/products/6-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/6-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/6-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/6-3.png" alt=""></button></li>
-                    <li ><button><img src="img/products/6-4.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/6-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/6-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/6-3.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/6-4.webp" alt=""></button></li>
                 </ul>
                 <h6>Basketball Shoes</h6>
                    <div class="price">
@@ -530,7 +609,7 @@
                 <p class=" fs-6 d-inline">128<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Built for signature scoring, the Nike KD 17 wraps Kevin Durant's game in precision comfort. Full-length Zoom Air strobel delivers responsive energy return with every drive, the lightweight jacquard upper conforms to your foot shape during stop-and-go moves, and the razor-edge traction pattern bites the court for confident cuts and KD-style fadeaways.
     </p>
 
     <div class="sizes-data d-none">
@@ -553,12 +632,12 @@
                     -12%
                 </p>
                 <div class="img">
-                    <img src="img/products/7-1.png" >
+                    <img src="img/products/7-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/7-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/7-2.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/7-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/7-2.webp" alt=""></button></li>
                 </ul>
                 <h6>Vapor Cage 4</h6>
                    <div class="price">
@@ -566,7 +645,7 @@
                 <p class=" fs-6 d-inline">118.80<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Made for aggressive baseliners, the NikeCourt Vapor Cage 4 Rafa is tuned with Rafael Nadal's ferocious game in mind. A reinforced TPU cage wraps the midfoot for locked-in stability during sliding steps, while Zoom Air cushioning absorbs the shock of every sprint and recovery hit. The durable XDR outsole with herringbone traction delivers confident grip on hard clay, concrete, and asphalt courts.
     </p>
 
     <div class="sizes-data d-none">
@@ -589,13 +668,13 @@
                     -13%
                 </p>
                 <div class="img">
-                    <img src="img/products/8-1.png" >
+                    <img src="img/products/8-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/8-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/8-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/8-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/8-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/8-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/8-3.webp" alt=""></button></li>
                 
                 </ul>
                 <h6>Don Issue 3</h6>
@@ -604,7 +683,7 @@
                 <p class=" fs-6 d-inline">153.12<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Channel Donovan Mitchell's fearless scoring with the adidas D.O.N. Issue #3. A full-length Lightstrike midsole keeps the ride light and responsive on every explosion to the rim, while the breathable knit upper with internal support bands wraps your foot securely for crossover dribbles and contested finishes. The distinctive spider-web traction on the outsole bites the court on every change of direction.
     </p>
 
     <div class="sizes-data d-none">
@@ -627,13 +706,13 @@
                     -13%
                 </p>
                 <div class="img">
-                    <img src="img/products/9-1.png" >
+                    <img src="img/products/9-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/9-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/9-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/9-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/9-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/9-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/9-3.webp" alt=""></button></li>
                 </ul>
                 <h6>Babolat JET</h6>
                    <div class="price">
@@ -641,7 +720,7 @@
                 <p class=" fs-6 d-inline">117.45<sup>$</sup></p>
                 </div>
                 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Engineered for competitive padel and fast-court tennis, the Babolat Jet Tere 2 pairs a featherweight Matryx upper with Michelin Performance rubber for unbeatable grip during sharp lateral cuts. The shock-absorbing KPRS-X system under the heel protects your joints on hard courts, while the low-profile midsole keeps you close to the court for explosive pushes to every corner of the field.
     </p>
 
     <div class="sizes-data d-none">
@@ -664,12 +743,12 @@
                     -12%
                 </p>
                 <div class="img">
-                    <img src="img/products/10-1.png" >
+                    <img src="img/products/10-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/10-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/10-2.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/10-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/10-2.webp" alt=""></button></li>
                 </ul>
                 <h6>Dita STBL 750</h6>
                    <div class="price">
@@ -677,7 +756,7 @@
                 <p class=" fs-6 d-inline">118.80<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Built for elite field hockey, the Dita STBL 750 pairs a lightweight pro-level upper with a stabilizing TPU shank for powerful pushes and precise dribbling. The textured multi-directional outsole grips artificial turf and natural grass equally well, while the reinforced toe box protects against stick impacts and gives you confidence for every tackle, sprint, and shot on goal.
     </p>
 
     <div class="sizes-data d-none">
@@ -699,13 +778,13 @@
                     -12%
                 </p>
                 <div class="img">
-                    <img src="img/products/11-1.png" >
+                    <img src="img/products/11-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/11-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/11-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/11-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/11-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/11-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/11-3.webp" alt=""></button></li>
                 </ul>
                 <h6>Triumph 19 Women</h6>
                 <div class="price">
@@ -713,7 +792,7 @@
                 <p class=" fs-6 d-inline">189.20<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        The women's Saucony Triumph 19 wraps your foot in cloud-soft comfort for easy-paced long runs. A full-length PWRRUN+ midsole delivers ultra-plush cushioning mile after mile, while the engineered mesh upper provides a women's-specific, form-fitting hug through the heel and midfoot. The XT-900 carbon rubber outsole offers dependable durability for road miles, recovery jogs, and daily training walks.
     </p>
 
     <div class="sizes-data d-none">
@@ -733,20 +812,20 @@
 
             <div class="item "data-id="12">
                 <div class="img">
-                    <img src="img/products/12-1.png" >
+                    <img src="img/products/12-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/12-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/12-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/12-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/12-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/12-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/12-3.webp" alt=""></button></li>
                 </ul>
                 <h6>Triumph 19 Men</h6>
                    <div class="price">
                 <p class=" fs-6 d-inline">243.00<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Designed for men seeking maximum comfort, the Saucony Triumph 19 combines an accommodating forefoot with acres of PWRRUN+ cushioning for fatigue-free miles. The FORMFIT performance upper adapts to your unique foot shape through the heel, arch, and toe box, while the engineered rubber outsole with TRI-FLEX geometry delivers a flexible, grippy ride on every road surface, from city sidewalks to mountain running paths.
     </p>
 
     <div class="sizes-data d-none">
@@ -766,20 +845,20 @@
             <div class="item "data-id="13">
 
                 <div class="img">
-                    <img src="img/products/13-1.png" >
+                    <img src="img/products/13-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/13-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/13-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/13-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/13-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/13-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/13-3.webp" alt=""></button></li>
                 </ul>
                 <h6>On Cloudflyer Men</h6>
                    <div class="price">
                 <p class=" fs-6 d-inline">213.00<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        For runners who crave stability without stiffness, the men's On Cloudflyer 4 offers the signature CloudTec cushioning plus a wider footprint and guiding sidewalls. The breathable engineered mesh upper holds your foot securely during longer training runs, while the Speedboard plate in the midsole turns every landing into a smooth, energy-efficient toe-off — perfect for half-marathon training, daily 10K runs, and overpronation-friendly support.
     </p>
 
     <div class="sizes-data d-none">
@@ -799,20 +878,20 @@
             <div class="item "data-id="14">
               
                 <div class="img">
-                    <img src="img/products/14-1.png" >
+                    <img src="img/products/14-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/14-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/14-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/14-3.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/14-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/14-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/14-3.webp" alt=""></button></li>
                 </ul>
                 <h6>Aero Wave 19</h6>
                    <div class="price">
                 <p class=" fs-6 d-inline">188.25<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Dominate the indoor court in the Mizuno Aero Wave 19 volleyball shoe. The signature Wave plate disperses shock for soft, stable landings, while the lightweight Dynamotion Fit upper adapts seamlessly to your foot's natural movement during jumps, cuts, and quick transition plays. The high-grip X10 rubber outsole provides slip-resistant traction on polished gym floors from the first serve to match point.
     </p>
 
     <div class="sizes-data d-none">
@@ -834,14 +913,14 @@
                     -12%
                 </p>
                 <div class="img">
-                    <img src="img/products/15-1.png" >
+                    <img src="img/products/15-1.webp" >
                 </div>
                                 <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/15-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/15-2.png" alt=""></button></li>
-                    <li ><button><img src="img/products/15-3.png" alt=""></button></li>
-                    <li ><button><img src="img/products/15-4.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/15-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/15-2.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/15-3.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/15-4.webp" alt=""></button></li>
                 </ul>
                 <h6>NIKE Women's Hyperace</h6>
                    <div class="price">
@@ -849,7 +928,7 @@
                 <p class=" fs-6 d-inline">156.86<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Built for women's competitive volleyball, the Nike Zoom Hyperace 2 packs responsive Zoom Air cushioning in the forefoot for powerful jumps and gentle landings. The women's-specific last hugs narrower heels and midfeet for a secure, lockdown fit, while the breathable mesh upper keeps feet cool through long tournaments. The circular traction pattern delivers multi-directional grip for quick pivots and explosive approaches at the net.
     </p>
 
     <div class="sizes-data d-none">
@@ -872,12 +951,12 @@
                     -15%
                 </p>
                 <div class="img">
-                    <img src="img/products/16-1.png" >
+                    <img src="img/products/16-1.webp" >
                 </div>
-                    <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
+                                <button class="quick-view-btn"><i class="fa-solid fa-magnifying-glass"></i> </button>
                 <ul class="circles">
-                    <li ><button class="select"><img src="img/products/16-1.png" alt=""></button></li>
-                    <li ><button><img src="img/products/16-2.png" alt=""></button></li>
+                    <li ><button class="select"><img src="img/products/16-1.webp" alt=""></button></li>
+                    <li ><button><img src="img/products/16-2.webp" alt=""></button></li>
                 </ul>
                 <h6>NIKE Man's Hyperace</h6>
                    <div class="price">
@@ -885,7 +964,7 @@
                 <p class=" fs-6 d-inline">159.80<sup>$</sup></p>
                 </div>
 <p class="description d-none">
-        Lightweight basketball shoes with premium cushioning.
+        Take your indoor game to the next level with the men's Nike Zoom GT Cut Academy. A full-length React foam midsole combines with a forefoot Zoom Air unit for explosive first steps and controlled cuts on every possession. The breathable mesh with synthetic overlays locks you in during fast breaks and defensive slides, while the data-informed radial traction on the outsole gives you reliable grip on polished wood, rubberized tile, and court surfaces anywhere in the world.
     </p>
 
     <div class="sizes-data d-none">
@@ -906,7 +985,6 @@
     </div>
 
 
-<!-- Quick View Popup -->
 <div class="quick-view-overlay">
     <div class="quick-view">
 
@@ -941,19 +1019,56 @@
                 <div class="colors-list"></div>
             </div>
 
+            <div class="popup-actions">
+            <div class="qty-control qty-control-popup">
+                <span class="qty-label">Qty</span>
+                <button type="button" class="qty-btn qty-minus" aria-label="Decrease"><i class="fa-solid fa-minus"></i></button>
+                <span class="qty-value">1</span>
+                <button type="button" class="qty-btn qty-plus" aria-label="Increase"><i class="fa-solid fa-plus"></i></button>
+            </div>
             <button class="popup-add-cart add  ">
                 Add To Cart
             </button>
+            <button type="button" class="popup-fav-btn" aria-label="Add to favorites">
+                <i class="fas fa-heart"></i>
+            </button>
+            </div>
 
         </div>
 
     </div>
 </div>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-row">
+            <div class="footer-brand">
+                <img src="img/logo.png" class="footer-logo" alt="Nike" data-default-logo="img/logo.png" data-logo-blue="img/logo2.png" data-logo-orange="img/logo3.png">
+                <p>Just Do It.</p>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; <span id="footerYear">2026</span> Nike, Inc. All Rights Reserved.</p>
+                <p class="owner">Owned & Designed by Nike Official Store.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="js/bootstrab.js"></script>
-    <script src="js/functions.js"></script>
-    <script src="js/nike.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/products.js"></script>
     <script src="js/quick-view.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike - Checkout</title>
+    <script>
+    (function () {
+      try {
+        localStorage.removeItem("nike_theme");
+      } catch (e) {}
+      try {
+        var raw = sessionStorage.getItem("nike_theme");
+        if (!raw) return;
+        var parsed = JSON.parse(raw);
+        var variant = parsed && parsed.variant;
+        if (!variant) return;
+        var mainHex = "#fb2527";
+        var logoSrc = "img/logo.png";
+        if (variant === "blue") {
+          mainHex = "#0E7AD7";
+          logoSrc = "img/logo2.png";
+        } else if (variant === "orange") {
+          mainHex = "#EC9720";
+          logoSrc = "img/logo3.png";
+        }
+        document.documentElement.style.setProperty("--main-color", mainHex);
+        document.documentElement.style.setProperty("--first-color", mainHex);
+        document.addEventListener("DOMContentLoaded", function () {
+          var navLogo = document.querySelector(".navbar.nav img.logo");
+          if (navLogo) navLogo.src = logoSrc;
+          var icon = document.querySelector('link[rel="icon"]');
+          if (icon) icon.href = logoSrc;
+          var fl = document.querySelectorAll(".site-footer .footer-logo");
+          fl.forEach(function (f) { f.src = logoSrc; });
+        });
+      } catch (e) {}
+    })();
+    </script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+</style>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/nike.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="icon" href="img/logo.png" type="image/png">
+</head>
+<body class="page-checkout">
+     
+        <div class="overlay">
+            <div class="cart no">
+                <p class="d-inline h4">Shop</p>
+                <button class="x"><i class="fa-solid fa-xmark"></i></button>
+                <div><h6>There are no products</h6></div>
+                <button class="buy">Buy Now</button>
+            </div>
+        </div>
+        <div class="overlay overlay-fav">
+            <div class="cart fav-box no">
+                <p class="d-inline h4">Favorites</p>
+                <button class="x"><i class="fa-solid fa-xmark"></i></button>
+                <div><h6>There are no favorites</h6></div>
+            </div>
+        </div>
+
+    <section class="checkout">
+        <div class="container">
+            <div class="checkout-header">
+                <h2>Checkout</h2>
+                <p>Review your order and complete your purchase</p>
+            </div>
+
+            <div class="checkout-wrap">
+                <div class="checkout-left">
+                    <div class="co-section-title">
+                        <h4>Order Items</h4>
+                    </div>
+                    <div class="co-items" id="coItems">
+                    </div>
+
+                    <div class="co-empty" id="coEmpty">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <h5>Your cart is empty</h5>
+                        <a href="index.html" class="back-btn">Continue Shopping</a>
+                    </div>
+                </div>
+
+                <div class="checkout-right">
+                    <div class="co-section-title">
+                        <h4>Shipping & Payment</h4>
+                    </div>
+
+                    <form id="checkoutForm" class="checkout-form" novalidate>
+                        <div class="form-row">
+                            <label for="coName">Full Name <span class="req">*</span></label>
+                            <input type="text" id="coName" name="coName" placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="coPhone">Phone Number <span class="req">*</span></label>
+                            <input type="tel" id="coPhone" name="coPhone" placeholder="Enter your phone number">
+                        </div>
+
+                        <div class="form-row">
+                            <label for="coAddress">Shipping Address <span class="req">*</span></label>
+                            <textarea id="coAddress" name="coAddress" rows="3" placeholder="Enter your full address"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="coPromo">Promo Code</label>
+                            <div class="promo-row">
+                                <input type="text" id="coPromo" name="coPromo" placeholder="Have a promo code?">
+                                <button type="button" id="applyPromo" class="promo-btn">Apply</button>
+                            </div>
+                            <p class="promo-msg" id="promoMsg"></p>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="coNotes">Order Notes</label>
+                            <textarea id="coNotes" name="coNotes" rows="2" placeholder="Any special instructions for delivery?"></textarea>
+                        </div>
+
+                        <div class="form-row payment-row">
+                            <label>Payment Method <span class="req">*</span></label>
+                            <div class="payment-options">
+                                <label class="pay-opt">
+                                    <input type="radio" name="coPayment" value="visa" checked>
+                                    <span class="pay-box">
+                                        <i class="fa-brands fa-cc-visa"></i>
+                                        <span>Visa / Card</span>
+                                    </span>
+                                </label>
+                                <label class="pay-opt">
+                                    <input type="radio" name="coPayment" value="cash">
+                                    <span class="pay-box">
+                                        <i class="fa-solid fa-money-bill-wave"></i>
+                                        <span>Cash On Delivery</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="visa-fields" id="visaFields">
+                            <div class="form-row">
+                                <label for="coCardNum">Card Number <span class="req">*</span></label>
+                                <input type="text" id="coCardNum" maxlength="19" placeholder="1234 5678 9012 3456">
+                            </div>
+                            <div class="form-row two-cols">
+                                <div>
+                                    <label for="coCardExp">Expiry <span class="req">*</span></label>
+                                    <input type="text" id="coCardExp" maxlength="5" placeholder="MM/YY">
+                                </div>
+                                <div>
+                                    <label for="coCardCvv">CVV <span class="req">*</span></label>
+                                    <input type="text" id="coCardCvv" maxlength="3" placeholder="123">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="co-summary">
+                        <div class="co-section-title">
+                            <h4>Order Summary</h4>
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="sumSubtotal">0$</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="sumShipping">0$</span>
+                        </div>
+                        <div class="summary-row discount-row" id="sumDiscountRow" style="display:none;">
+                            <span>Discount</span>
+                            <span id="sumDiscount">-0$</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span id="sumTotal">0$</span>
+                        </div>
+                        <button type="button" class="place-order-btn" id="placeOrderBtn">
+                            Place Order
+                        </button>
+                        <p class="co-msg" id="coMsg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="overlaySuccess" id="orderSuccess">
+        <div class="success">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Order Placed Successfully</h3>
+            <p>Thank you for shopping with Nike!</p>
+            <p class="order-ref" id="orderRef"></p>
+            <button class="ok" id="orderOkBtn">Continue</button>
+        </div>
+    </div>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-row">
+            <div class="footer-brand">
+                <img src="img/logo.png" class="footer-logo" alt="Nike" data-default-logo="img/logo.png" data-logo-blue="img/logo2.png" data-logo-orange="img/logo3.png">
+                <p>Just Do It.</p>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; <span id="footerYear">2026</span> Nike, Inc. All Rights Reserved.</p>
+                <p class="owner">Owned & Designed by Nike Official Store.</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/utils.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

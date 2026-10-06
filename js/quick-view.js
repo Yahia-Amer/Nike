@@ -1,22 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.NikeApp = window.NikeApp || {};
 
-  // ---------- Element references ----------
-  const overlay          = document.querySelector(".quick-view-overlay");
-  const closeBtn          = document.querySelector(".close-popup");
+NikeApp.initQuickView = function initQuickView() {
+  const overlay = document.querySelector(".quick-view-overlay");
+  const closeBtn = document.querySelector(".close-popup");
 
-  const popupImage        = document.querySelector(".popup-image");
-  const popupImages       = document.querySelector(".popup-images");
-  const popupTitle        = document.querySelector(".popup-title");
-  const oldPriceEl        = document.querySelector(".old-price");
-  const newPriceEl        = document.querySelector(".new-price");
-  const popupDescription  = document.querySelector(".popup-description");
-  const sizesList         = document.querySelector(".sizes-list");
-  const colorsList        = document.querySelector(".colors-list");
-  const addCartBtn        = document.querySelector(".popup-add-cart");
+  const popupImage = document.querySelector(".popup-image");
+  const popupImages = document.querySelector(".popup-images");
+  const popupTitle = document.querySelector(".popup-title");
+  const oldPriceEl = document.querySelector(".old-price");
+  const newPriceEl = document.querySelector(".new-price");
+  const popupDescription = document.querySelector(".popup-description");
+  const sizesList = document.querySelector(".sizes-list");
+  const colorsList = document.querySelector(".colors-list");
+  const addCartBtn = document.querySelector(".popup-add-cart");
 
   let currentItem = null;
-
-  // ---------- Open / close ----------
 
   function openPopup(item) {
     currentItem = item;
@@ -32,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
     currentItem = null;
   }
-
-  // ---------- Populate popup from clicked item ----------
 
   function populatePopup(item) {
     const cardMainImg = item.querySelector(".img img");
@@ -56,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderColors(item);
   }
 
-  // Thumbnails are plain <img> tags inside .popup-images (matches nike.css: .popup-images img)
   function renderThumbnails(item, activeSrc) {
     popupImages.innerHTML = "";
 
@@ -71,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         thumb.classList.add("active");
       }
 
-      thumb.addEventListener("click", () => {
+      thumb.addEventListener("click", function () {
         popupImage.src = img.src;
 
         popupImages
@@ -112,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sizeBtn.type = "button";
       sizeBtn.textContent = span.textContent.trim();
 
-      sizeBtn.addEventListener("click", () => {
+      sizeBtn.addEventListener("click", function () {
         sizesList
           .querySelectorAll("button")
           .forEach((btn) => btn.classList.remove("active"));
@@ -123,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Colors are plain <span> tags inside .colors-list (matches nike.css: .colors-list span)
   function renderColors(item) {
     colorsList.innerHTML = "";
 
@@ -136,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
       colorSpan.style.background = color;
       colorSpan.setAttribute("title", color);
 
-      colorSpan.addEventListener("click", () => {
+      colorSpan.addEventListener("click", function () {
         colorsList
           .querySelectorAll("span")
           .forEach((el) => el.classList.remove("active"));
@@ -146,8 +140,6 @@ document.addEventListener("DOMContentLoaded", () => {
       colorsList.appendChild(colorSpan);
     });
   }
-
-  // ---------- Add to cart ----------
 
   function updateAddToCartUI(item) {
     const bought = item.classList.contains("bought");
@@ -163,34 +155,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function toggleAddToCart() {
-    if (!currentItem) return;
-
-    currentItem.classList.toggle("bought");
-    updateAddToCartUI(currentItem);
-  }
-
-  // ---------- Event listeners ----------
-
   document.querySelectorAll(".quick-view-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", function () {
       const item = btn.closest(".item");
       if (item) openPopup(item);
     });
   });
 
-  closeBtn.addEventListener("click", closePopup);
+  if (closeBtn) closeBtn.addEventListener("click", closePopup);
 
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closePopup();
-  });
+  if (overlay) {
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) closePopup();
+    });
+  }
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("show")) {
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && overlay && overlay.classList.contains("show")) {
       closePopup();
     }
   });
 
-  addCartBtn.addEventListener("click", toggleAddToCart);
-
-});
+};
