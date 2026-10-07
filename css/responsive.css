@@ -36,8 +36,9 @@ select {
 
 /* Large screens up to 1300px */
 @media (max-width: 1300px) {
-    .nav {
+    .navbar.nav {
         min-height: 70px;
+        padding: 10px clamp(14px, 3vw, 28px);
     }
 
     body {
@@ -52,9 +53,10 @@ select {
 
     .nav .nav-items {
         position: relative;
-        width: min(100%, 900px);
-        margin-left: auto;
-        margin-right: 10px;
+        flex: 0 0 100%;
+        width: 100%;
+        order: 3;
+        margin: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -558,24 +560,6 @@ select {
 
 /* Small and medium desktops */
 @media (min-width: 1025px) and (max-width: 1300px) {
-    .nav .nav-items {
-        width: 62%;
-        margin-right: 0;
-    }
-
-    .nav .nav-items .sections {
-        flex-direction: row;
-        justify-content: center;
-        padding: 0;
-    }
-
-    .nav .nav-items .func {
-        width: auto;
-        gap: 16px;
-        padding: 0;
-        margin: 0 0 0 10px;
-    }
-
     .featured .products .item {
         width: min(22vw, 260px);
     }
@@ -587,7 +571,7 @@ select {
         --mobile-safe-padding: 12px;
     }
 
-    .nav {
+    .navbar.nav {
         padding: 8px 12px;
     }
 
