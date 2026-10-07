@@ -1205,10 +1205,10 @@ opacity: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: min(520px, 90%); */
-    margin: 0 auto 36px;
     position: relative;
+
     margin-top: 100px;
+    margin-bottom: 60px;
 }
 .latest .title img,
 .featured .title img {
