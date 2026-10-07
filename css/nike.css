@@ -1273,7 +1273,7 @@ opacity: 0;
 .latest .item .prespective .img img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     transform: none;
 }
 .latest .item .prespective .img:hover img {
@@ -1473,6 +1473,7 @@ opacity: 0;
 .featured .products {
     display: grid;
     grid-template-columns: repeat(4, minmax(220px, 1fr));
+    justify-items: center;
     gap: 24px;
     width: min(1280px, calc(100% - 48px));
     margin: 0 auto;

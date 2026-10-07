@@ -325,8 +325,7 @@ select {
         padding: 0;
     }
 
-    .latest .item .prespective .img,
-    .latest .item .prespective .img:not(:last-child) {
+    .latest .item .prespective .img {
         width: 100%;
         max-width: 90px;
         height: 72px;
@@ -337,8 +336,9 @@ select {
     }
 
     .latest .item .prespective .img img {
-        width: 78%;
-        height: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         transform: none;
     }
 
@@ -397,7 +397,8 @@ select {
     }
 
     .featured .products .item {
-        width: min(80vw, 360px);
+        width: 100%;
+        max-width: 360px;
         height: 390px;
     }
 
@@ -479,13 +480,13 @@ select {
 }
 
 /* Tablets and small desktops */
-@media (min-width: 480.98px) and (max-width: 767.98px) {
+@media (min-width: 480px) and (max-width: 767px) {
     .featured .products .item {
         width: min(42vw, 320px);
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023.98px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     #lio-carousel {
         height: 100vh !important;
     }
@@ -532,6 +533,7 @@ select {
         display: flex !important;
         flex-direction: column !important;
         gap: 12px;
+        min-width: 150;
         padding: 0;
     }
 
@@ -545,10 +547,6 @@ select {
         width: min(28vw, 260px);
     }
 
-    .featured .products .item {
-        width: min(29vw, 280px);
-    }
-
     .overlay .cart {
         width: min(80vw, 900px);
     }
@@ -558,15 +556,8 @@ select {
     }
 }
 
-/* Small and medium desktops */
-@media (min-width: 1025px) and (max-width: 1300px) {
-    .featured .products .item {
-        width: min(22vw, 260px);
-    }
-}
-
 /* Phones under 480px */
-@media (max-width: 480.98px) {
+@media (max-width: 480px) {
     :root {
         --mobile-safe-padding: 12px;
     }
@@ -743,7 +734,7 @@ select {
     }
 }
 
-@media (max-width: 380.98px) {
+@media (max-width: 380px) {
     .latest .item {
         padding: 16px 12px;
         gap: 12px;
@@ -790,14 +781,14 @@ select {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
     .offers {
         grid-template-columns: 1fr;
         width: min(92vw, 560px);
         min-height: auto;
-        gap: 16px;
         margin-top: 50px !important;
-    }
+        gap: 5px;
+        }
 
     .offers .img {
         height: 200px;
@@ -918,6 +909,7 @@ select {
     .featured .products {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
         width: min(94vw, 760px);
+        gap: 50px;
     }
 }
 
@@ -939,7 +931,7 @@ select {
     }
 
     .featured .products {
-        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
     }
 }
 
@@ -1045,7 +1037,7 @@ select {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
     #Home #lio-carousel {
         height: auto !important;
         min-height: 0;
@@ -1192,7 +1184,7 @@ select {
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 767px) {
     .offers {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
